@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/facultyNav.html"></div>
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <div class="mt-5">
+        <tr th:each="faculty  : ${faculty }">
+            <div class="text-3xl mt-5" th:text="'Welcome To ' + ${faculty.name}"></div>
+        </tr>
+    </div>
+</center>
+</body>
+</html>

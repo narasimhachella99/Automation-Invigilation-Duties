@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/hodNav.html"></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="grid grid-cols-10">
+        <div class="col-start-3 col-end-9">
+            <h1 class="mb-4 text-5xl text-center mt-5">All Faculty Details</h1>
+            <form th:action="@{/faculty}" method="get">
+                <div class="flex justify-center">
+                    <div class="xl:w-96">
+                        <div class="input-group relative flex flex-wrap items-stretch w-full">
+                            <input type="search" name="keyword"
+                                   class="form-control relative flex-auto min-w-0 block  px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                   placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                            &nbsp;&nbsp;
+                            <button type="submit"
+                                    class="text-white rounded bg-gradient-to-l from-fuchsia-500 to-red-400 ">Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form action="/status" method="post">
+                <table class="table-auto w-full mt-2 border-collapse border border-slate-400 border-separate">
+                    <thead class=" bg-gradient-to-l from-fuchsia-500 to-red-400 ">
+                    <tr>
+                        <th class="border border-slate-300 text-rose-900">S.No</th>
+                        <th class="border border-slate-300 text-rose-900">Name</th>
+                        <th class="border border-slate-300 text-rose-900">Email</th>
+                        <th class="border border-slate-300 text-rose-900">Department</th>
+                        <th class="border border-slate-300 text-rose-900">PhoneNumber</th>
+                        <!--                    <th class="border border-slate-300 text-rose-900">Actions</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each="faculty : ${time}">
+                        <td th:text="${faculty.id}" class="border border-slate-300 text-rose-900"></td>
+                        <td th:text="${faculty.name}" class="border border-slate-300 text-rose-900"></td>
+                        <td th:text="${faculty.email}" class="border border-slate-300 text-rose-900"></td>
+                        <td th:text="${faculty.dept}" class="border border-slate-300 text-rose-900"></td>
+                        <td th:text="${faculty.phoneNumber}" class="border border-slate-300 text-rose-900"></td>
+                        <td>
+
+                            <input type="checkbox"
+                                   th:onclick="'javascript:userSettings('  + ${faculty.id} + ', this );'"/>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="relative">
+                    <input type="hidden" name="arr" id="array">
+                    <button
+                            class=" px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-gradient-to-l from-fuchsia-500 to-red-400   font-medium m-2 mb-6 text-center ">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+let arr=[]
+let input = document.getElementById("array");
+   function userSettings(id)
+    {
+      if(!arr.includes(id)){
+        arr.push(id);
+    }
+      input.value=arr
+      console.log(input.value)
+    }
+</script>
+</body>
+</html>

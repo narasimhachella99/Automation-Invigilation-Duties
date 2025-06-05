@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <div th:insert="navbar/hodNav.html"></div>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <div class="grid grid-cols-10">
+    <div class="col-start-3 col-end-9">
+      <h1 class="mb-4 text-5xl text-center mt-5">Invigilation details</h1>
+      <form th:action="@{/faculty}" method="get">
+        <div class="flex justify-center">
+          <div class="xl:w-96">
+            <div class="input-group relative flex flex-wrap items-stretch w-full">
+              <input type="search" name="keyword"
+                     class="form-control relative flex-auto min-w-0 block  px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                     placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+              &nbsp;&nbsp;
+              <button type="submit"
+                      class="text-white rounded bg-gradient-to-l from-fuchsia-500 to-red-400 ">Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <table class="table-auto w-full mt-2 border-collapse border border-slate-400 border-separate">
+        <thead class=" bg-gradient-to-l from-fuchsia-500 to-red-400 ">
+        <tr>
+          <th class="border border-slate-300 text-rose-900">S.No</th>
+          <th class="border border-slate-300 text-rose-900">Faculty</th>
+          <th class="border border-slate-300 text-rose-900">Phone Number</th>
+          <th class="border border-slate-300 text-rose-900">AssignedDate</th>
+          <th class="border border-slate-300 text-rose-900">Room Number</th>
+          <th class="border border-slate-300 text-rose-900">From Time</th>
+          <th class="border border-slate-300 text-rose-900">To Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="time : ${time}">
+          <td th:text="${time.id}" class="border border-slate-300 text-rose-900"></td>
+          <td th:text="${time.name}" class="border border-slate-300 text-rose-900"></td>
+          <td th:text="${time.phoneNumber}" class="border border-slate-300 text-rose-900"></td>
+          <td th:text="${time.date}" class="border border-slate-300 text-rose-900"></td>
+          <td th:text="${time.roomNumber}" class="border border-slate-300 text-rose-900"></td>
+          <td th:text="${time.fromTime}" class="border border-slate-300 text-rose-900"></td>
+          <td th:text="${time.toTime}" class="border border-slate-300 text-rose-900"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

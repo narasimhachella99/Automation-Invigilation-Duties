@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:insert="navbar/mainNav.html"></div>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<!--https://images.unsplash.com/photo-1499123785106-343e69e68db1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1748&q=80-->
+<div class="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat mt-0"
+     style="background-image:url('https://wallpaper-house.com/data/out/10/wallpaper2you_391579.jpg  ')">
+    <div class="rounded-xl bg-gray-800 bg-opacity-50 px-16 py-10 shadow-lg backdrop-blur-md max-sm:px-8">
+        <div class="text-white">
+            <div class="mb-8 flex flex-col items-center">
+                <img src="data:image/png;base64,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"
+                     width="150" alt="" srcset=""/>
+                <h1 class="mb-2 text-2xl"></h1>
+                <span class="text-gray-300">Enter Login Details</span>
+            </div>
+            <div class="w-full max-w-lg text-teal-500">
+                <div
+                        class="alert alert-danger"
+                        th:if="${error}"
+                        th:text="${error}"
+                ></div>
+                <div
+                        class="alert alert-success"
+                        th:if="${success}"
+                        th:text="${success}"
+                ></div>
+            </div>
+            <form action="/login" method="post">
+                <div class="mb-4 text-lg">
+                    <input class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                           type="email"
+                           name="email" placeholder="email"/>
+                </div>
+
+                <div class="mb-4 text-lg">
+                    <input class="rounded-3xl border-none bg-yellow-400 bg-opacity-50 px-6 py-2 text-center text-inherit placeholder-slate-200 shadow-lg outline-none backdrop-blur-md"
+                           type="Password"
+                           name="password" placeholder="password"/>
+                </div>
+                <div class="mt-8 flex justify-center text-lg text-black">
+                    <button type="submit"
+                            class="rounded-3xl bg-yellow-400 bg-opacity-50 px-10 py-2 text-white shadow-xl backdrop-blur-md transition-colors duration-300 hover:bg-yellow-600">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
